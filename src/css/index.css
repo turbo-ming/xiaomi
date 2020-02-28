@@ -159,7 +159,7 @@
   float: left;
 }
 
-#topWrap #topWrap_cont .top_lis .ul_3 li a {
+#topWrap #topWrap_cont .top_lis .ul_3 li .a_chenge {
   display: block;
   height: 98px;
   line-height: 98px;
@@ -168,9 +168,63 @@
   margin-right: 20px;
 }
 
-#topWrap #topWrap_cont .top_lis .ul_3 li a:hover {
+#topWrap #topWrap_cont .top_lis .ul_3 li .a_chenge:hover {
   color: #ff6700;
   cursor: pointer;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul {
+  position: absolute;
+  z-index: 666;
+  display: flex;
+  justify-content: space-around;
+  height: 200px;
+  width: 100%;
+  left: 0;
+  background: #fff;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li {
+  position: relative;
+  float: left;
+  width: 180px;
+  padding: 26px 12px 0;
+  text-align: center;
+  align-items: center;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li::after {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  z-index: 1;
+  width: 1px;
+  height: 100px;
+  content: "";
+  background-color: #e0e0e0;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li aside {
+  margin-bottom: 10px;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li aside img {
+  height: 100%;
+  width: 100%;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li p {
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #333;
+}
+
+#topWrap #topWrap_cont .top_lis .ul_3 li ul li span {
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #ff6700;
 }
 
 #banner {
@@ -205,7 +259,7 @@
   height: 460px;
 }
 
-#banner #banner_cont .banner_list {
+#banner #banner_cont .containor {
   height: 100%;
   background: rgba(105, 101, 101, 0.6);
   position: absolute;
