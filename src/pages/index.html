@@ -9,11 +9,38 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/leftlist.css">
-    <link rel="stylesheet" href="iconfont/iconfont.css">
     <link rel="stylesheet" href="../icon-font/iconfont.css">
+    <script src="../lib/swiper/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="../lib/swiper/css/swiper.min.css">
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
+
     <div id="topWrap">
         <div id="topWrap_cont">
             <section class="top_log">
@@ -84,82 +111,243 @@
                     </li>
                 </ul>
             </section>
-            <section class="top_lis">
-                <h1></h1>
-                <form action="">
-                    <input type="text" class="txt" placeholder="小米9...">
-                    <button class="sub"><i class="iconfont icon-icon-test5"></i></button>
-                </form>
-                <ul class="ul_3">
-                    <li>
-                        <a href="" class="a_chenge">小米手机</a>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span>
-                                </a>
-                            </li>
-                            <li class="li_bg">
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span></a>
-                            </li>
-                            <li class="li_bg">
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span></a>
-                            </li>
-                            <li class="li_bg">
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span></a>
-                            </li>
-                            <li class="li_bg">
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span></a>
-                            </li>
-                            <li class="li_bg">
-                                <a href="#">
-                                    <aside style="width: 160;height: 110px;"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=160&h=110&f=webp&q=90" alt=""></aside>
-                                    <p>小米10 pro</p>
-                                    <span>199</span></a>
-                            </li>
+            <div id="header" class="container">
+                <div id="header_logo"></div>
+                <div id="header_nav">
+                    <ul id="header_menu_list">
+                        <li class="header_menu_list header_menu_list_checked header_menu_list_fi"><a href="">小米手机</a></li>
+                        <li class="header_menu_list"><a href="">电视</a></li>
+                        <li class="header_menu_list"><a href="">笔记本</a></li>
+                        <li class="header_menu_list"><a href="">家电</a></li>
+                        <li class="header_menu_list"><a href="">智能家电</a></li>
+                        <li class="header_menu_list"><a href="">路由器</a></li>
 
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">Redmi 红米</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">电视</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">笔记本</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">家电</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">路由器</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">智能硬件</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">服务</a>
-                    </li>
-                    <li>
-                        <a href="" class="a_chenge">社区</a>
-                    </li>
-                </ul>
-            </section>
+                        <div class="clear"></div>
+                    </ul>
+                    <div id="header_menu_details">
+                        <div id="header_menu_details_box">
+                            <div id="header_menu_details_mask">
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title"></p>
+                                        <h2 class="header_detail_title_type">小米10</h2>
+                                        <span class="header_detail_title_price">1999元起</span>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例音乐</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例音乐</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例音乐</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例音乐</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例图片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例图片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例图片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例图片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例图片</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例文章</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例文章</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例文章</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例文章</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例文章</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例影片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例影片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例影片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例影片</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例影片</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="header_detail_container">
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例关于</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例关于</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例关于</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例关于</p>
+                                    </div>
+                                    <div class="header_detail_box">
+                                        <div class="header_detail_img">
+                                            <div class="header_detail_imgCover"></div>
+                                        </div>
+                                        <p class="header_detail_title">示例关于</p>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="header_search">
+                    <input class="header_search_text" type="text" name="" id="header_search_text" value="输入搜索内容">
+                    <input class="header_search_subm" type="submit" value="">
+                </div>
+                <div class="clear"></div>
+            </div>
         </div>
     </div>
 
@@ -528,16 +716,118 @@
         </div>
     </div>
 
+    <!-- 小米闪购 -->
+    <div id="Flash_purchase">
+
+        <div id="Flash_cont">
+            <h2>小米闪购</h2>
+            <div class="Flash_cont_daojishi">
+                <div class="box_hd">
+                    <div class="flashsale-countdown rainbow-item-4 span4">
+                        <div class="round">14:00 场</div><img src="data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAA1CAYAAAAklDnhAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+                    bWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+                    bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+                    eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1
+                    MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+                    dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+                    dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv
+                    IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS
+                    ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD
+                    cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5j
+                    ZUlEPSJ4bXAuaWlkOjY4Q0ZFMkY5MTJFNzExRThCMkM4OEM1RTNBNjczQUVBIiB4bXBNTTpEb2N1
+                    bWVudElEPSJ4bXAuZGlkOjY4Q0ZFMkZBMTJFNzExRThCMkM4OEM1RTNBNjczQUVBIj4gPHhtcE1N
+                    OkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjhDRkUyRjcxMkU3MTFFOEIy
+                    Qzg4QzVFM0E2NzNBRUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NjhDRkUyRjgxMkU3MTFF
+                    OEIyQzg4QzVFM0E2NzNBRUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94Onht
+                    cG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5oEyacAAACoklEQVR42sSYv0tbURTHX0LqD6T4g4pE
+                    cHDoUOloBxVd/QFFEcQqWtrSKlKFmmAslopohzgIbv4FwUEE0clFujiIi+BSIbRQ0ooKRReRULHf
+                    S48Qgu++c3/FAx+iyU3eJzf3nnPuC/1qavQ04zVY8szjCHRGNN9cBD6DSkOJKzAGzsOaH/AW1FuY
+                    jRg4EH/oiJSCTxYk1sDK7T86Iu9BraHED/Au9wlVkYdg2lAiC/rBhYnIB/DIUOQj2M9/UkWkCsQN
+                    JbbA8l0vqIhMgXIDiZ/gFbgxEakBEwYSf8Eg+OM3gCsyA8oMRETy25UN4IjUgVEDiW2wGDSIIzIL
+                    ijUljsFLv3WhIvKYFphOXNO6OOUMDhKZA7qFcQF85Q6WXeQpeKEpcULlvY8xthp8iwR8I93qLLb7
+                    KnOsSPWNfhd6Bro99yHqTi9IhyWzEXIsIXbSG7Djt1jbQHsBZkMkyZRs13wpgIRoiJKy7dsBWh1L
+                    bN5Vt3JFQrQ2XMYeGKBk5yvSI7aRQ4k0eA4uZZlVPM47lDgTZxd6lKb4AcqkLuKSZiIdVGsiVFNc
+                    xDV9yT1Orekjoe+MDw4pHqwmaJewit66Ql0QaX+DOTaZe4DitAFZxQaaEynKnJ6KCDeaQAtj3A7V
+                    kBtXIpwT3iFV06zqquaKPKEtKIsM6Mo/StoWiQeMvSCJjO4+54hEwTCjuTk0STgckUm6QxTY3LgU
+                    Kc+/jyFrblyKCIkKbnPjSkT8HDGV5saVyBAtVHZz40Ik7HNTRtrcuBARF2tQbW5ciCR0mhvbIs2E
+                    cnNjWySh29zYFGnIK25KzY1Nkdziptzc2BKJUu7Qbm5sicQom2o3NzZEKqiu/DZpbmyIjIAHNBMZ
+                    7x4iTALjhcgVQSIl3v87w5vePcY/AQYAFYR6skFSqBUAAAAASUVORK5CYII=" alt="小米闪购">
+                        <div class="desc">距离结束还有</div>
+                        <div class="countdown clearfix"><span>01</span><i>:</i><span>28</span><i>:</i><span>14</span></div>
+                    </div>
+
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="">
+                                <div class="content">
+                                    <aside><img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1560238127.40319869.png?thumb=1&w=200&h=200" alt=""></aside>
+                                    <h3 class="title">小米手环4 NFC版 黑色</h3>
+                                    <p class="desc">大屏彩显，可刷公交、门禁 </p>
+                                    <p class="price"><span>209</span>元
+                                        <del>229元</del></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 4</div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <div class="content">
+                                    <aside><img src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575878173.84429959.jpg?thumb=1&w=200&h=200" alt=""></aside>
+                                    <h3 class="title">米家蓝牙温湿度计2 三个装</h3>
+                                    <p class="desc">冷暖干湿,一望而知</p>
+                                    <p class="price"><span>69</span>元
+                                        <del>87元</del></p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">Slide 6</div>
+                        <div class="swiper-slide">Slide 7</div>
+                        <div class="swiper-slide">Slide 8</div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next" class="pos"></div>
+                    <div class="swiper-button-prev" class="pos"></div>
+                    <!-- 
+                        <div class="swiper-controls">
+                            <span class="swiper-flashsale-prev" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="false">
+                                <i class="iconfont-arrow-left-big"></i></span>
+                                <span class="swiper-flashsale-next swiper-button-disabled" tabindex="0" role="button" aria-label="Next slide" aria-disabled="true">
+                                    <i class="iconfont-arrow-right-big"></i>
+                                </span>
+                            </div>
+                     -->
+                </div>
+            </div>
+            <div class="home-banner-box">
+                <a href="#">
+                    <img src="http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/11fc2ced4d8b5a924633f9a5b59f9fd2.jpg?thumb=1&w=1226&h=120&f=webp&q=90" alt="">
+                </a>
+            </div>
+
+        </div>
+    </div>
     <!-- case_2 -->
     <div id="case_2">
-        <div id="case2_cont">
-            <h2>手机</h2>
-            <div class="left">
+        <div id="case2_cont" class="clear_fix">
+            <section>
+                <h2>家电</h2>
+                <p>
+                    <span></span>
+                    <span></span>
+                </p>
+            </section>
+            <div class="left clear_fix">
                 <a href="javascript:;">
                     <img src="../images/left.webp" />
                 </a>
             </div>
-            <div class="right">
+            <div class="right clear_fix">
                 <div class="cp-list">
                     <section>
                         <aside>
@@ -628,13 +918,266 @@
 
                 </div>
             </div>
+
+        </div>
+        <div class="home-banner-box">
+            <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/41d16e66381cfeda7b6b39ab67678d5e.jpg?thumb=1&w=1226&h=120&f=webp&q=90" alt="">
+            </a>
         </div>
     </div>
 
-    <script src="../js/index.js"></script>
+    <!-- 家电 -->
+
+    <div id="case_3">
+        <div id="case3_cont" class="clear_fix">
+            <section class="sec">
+                <h2>家电</h2>
+                <p>
+                    <span>热门</span>
+                    <span class="active1">电视影音</span>
+                </p>
+            </section>
+            <div class="left">
+                <aside>
+                    <a href="">
+                        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b56fd90a60e3d9e5d87dae9fbd427ea8.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+                    </a>
+                </aside>
+                <aside>
+                    <a href="">
+                        <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b67de5a8ce9025fb5d8bac66e019d1c3.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+                    </a>
+                </aside>
+            </div>
+            <div class="right clear_fix">
+                <ul class="right_show">
+                    <li class="active2">
+                        <div class="cp-list" id="cp_list">
+                            <section>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r1.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">120Hz流速屏，全速热爱</p>
+                                    <p class="Price">
+                                        <span>1599元起</span>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r2.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">双模5G，120Hz流速屏</p>
+                                    <p class="Price">
+                                        <span>1999元起</span>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r3.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">1亿像素 五摄四闪</p>
+                                    <p class="Price">
+                                        <span>2599元起</span>
+                                        <del>
+                                        <span>2799</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r4.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">5000mAh超长续航</p>
+                                    <p class="Price">
+                                        <span>699元起</span>
+                                        <del>
+                                        <span>799</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                            </section>
+                            <section>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r5.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">5000mAh超长续航</p>
+                                    <p class="Price">
+                                        <span>599元起</span>
+                                        <del>
+                                        <span>699</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r6.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">6400万全场景四摄</p>
+                                    <p class="Price">
+                                        <span>1199元起</span>
+                                        <del>
+                                        <span>1399</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r7.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">千元4800万四摄</p>
+                                    <p class="Price">
+                                        <span>969元起</span>
+                                        <del>
+                                        <span>999</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <div class="aside_last">
+                                    <aside class="aside_chil">
+
+                                        <a href="">
+                                            <p>
+                                                <i>小米盒子</i>
+                                                <span>299</span>
+                                            </p>
+                                            <div class="Img"><img src="https://i8.mifile.cn/b2c-mimall-media/aa8a6ce3b2b1201d74d0197482f3403b!100x100.jpg" alt=""></div>
+                                        </a>
+
+                                    </aside>
+                                    <aside class="aside_chil">
+                                        <a href="">
+                                            <p>
+                                                <i>浏览更多</i>
+                                                <span>热门</span>
+                                            </p>
+                                        </a>
+
+                                    </aside>
+                                </div>
+                            </section>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cp-list" id="cp_list">
+                            <section>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r1.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">120Hz流速屏，全速热爱</p>
+                                    <p class="Price">
+                                        <span>1599元起</span>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r2.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">双模5G，120Hz流速屏</p>
+                                    <p class="Price">
+                                        <span>1999元起</span>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r3.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">1亿像素 五摄四闪</p>
+                                    <p class="Price">
+                                        <span>2599元起</span>
+                                        <del>
+                                        <span>2799</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r4.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">5000mAh超长续航</p>
+                                    <p class="Price">
+                                        <span>699元起</span>
+                                        <del>
+                                        <span>799</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                            </section>
+                            <section>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r5.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">5000mAh超长续航</p>
+                                    <p class="Price">
+                                        <span>599元起</span>
+                                        <del>
+                                        <span>699</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r6.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">6400万全场景四摄</p>
+                                    <p class="Price">
+                                        <span>1199元起</span>
+                                        <del>
+                                        <span>1399</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r7.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">千元4800万四摄</p>
+                                    <p class="Price">
+                                        <span>969元起</span>
+                                        <del>
+                                        <span>999</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                                <aside>
+                                    <div class="as_img"><img src="../images/r8.webp" alt=""></div>
+                                    <h3>Redmi K30</h3>
+                                    <p class="des">骁龙855 Plus， 弹出全面屏</p>
+                                    <p class="Price">
+                                        <span>2799元起</span>
+                                        <del>
+                                        <span>2999</span>元
+                                    </del>
+                                    </p>
+                                </aside>
+                            </section>
+
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="home-banner-box">
+            <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4d739d7a2c017a287a689c9702ec3b20.jpg?thumb=1&w=1226&h=120&f=webp&q=90" alt="">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 4,
+            spaceBetween: 12,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../js/style.js"></script>
     <script src="../js/daohan.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>

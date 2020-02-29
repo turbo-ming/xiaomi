@@ -26,5 +26,8 @@
         "iOS > 7",
         "FireFox < 20",
         "last 2 Explorer versions"
-    ]
+    ],
+    "dependencies": {
+        "swiper": "^5.3.1"
+    }
 }
