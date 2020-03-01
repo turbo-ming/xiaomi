@@ -177,3 +177,21 @@ for (var i = 0; i < _span.length; i++) {
         showLi[this.idx].style.display = "block";
     }
 }
+
+
+//智能切换
+var spanLis = document.querySelectorAll("#case4_cont>section>p>span");
+var showLis = document.querySelectorAll(".right_list>li");
+for (var i = 0; i < spanLis.length; i++) {
+    spanLis[i].idx = i;
+    spanLis[i].onmouseenter = function() {
+        console.log(showLi);
+
+        for (var j = 0; j < showLis.length; j++) {
+            spanLis[j].className = "";
+            showLis[j].style.display = "none";
+        }
+        this.className = "active1";
+        showLis[this.idx].style.display = "block";
+    }
+}
