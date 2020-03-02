@@ -126,14 +126,14 @@
 }
 
 #topWrap #topWrap_cont #header_menu_list {
-  width: auto;
+  width: 860px;
   height: 98px;
   margin-left: 150px;
   margin-bottom: 0;
 }
 
 #topWrap #topWrap_cont .header_menu_list {
-  width: 10%;
+  width: 12%;
   height: 98px;
   float: left;
   line-height: 68px;
@@ -141,6 +141,7 @@
   font-size: 18px;
   color: #8e8e8e;
   position: relative;
+  text-align: center;
 }
 
 #topWrap #topWrap_cont .header_menu_list a {
@@ -247,7 +248,6 @@
 #topWrap #topWrap_cont .header_detail_img {
   width: 160px;
   height: 110px;
-  background: url("../images/dh_bg.jpg");
   background-size: cover;
   margin-top: 20px;
 }
@@ -574,9 +574,10 @@
   overflow: hidden;
 }
 
-#case_2 #case2_cont h2 {
+#case_2 #case2_cont section h2 {
   height: 60px;
   line-height: 60px;
+  font-size: 30px;
 }
 
 #case_2 #case2_cont .left {

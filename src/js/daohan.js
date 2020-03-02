@@ -72,13 +72,13 @@ function pageAdjust() {
     /*
      *nav_list的调整
      */
-    var width_header_menu_list = $('#header').width() - 380;
+    var width_header_menu_list = 860 + "px";
     $('#header_menu_list').width(width_header_menu_list);
     var left_header_menu_list = (width_header_menu_list * 0.28 - 12) / 2 + 150;
     $('#header_menu_list').css('marginLeft', 168);
 
     //section_button_list位置调整
-    console.log(viewHeight / 2 - 50)
+
     $("#section_button").css('top', viewHeight / 2 - 50 + "px");
 
     for (var i = 0; i < 6; i++) {

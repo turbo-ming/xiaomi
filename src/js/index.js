@@ -91,14 +91,14 @@ var SwitchImg = function() {
         }
 
         bannerImg.style.left = -(index * offset) + "px";
-        console.log(bannerImg.offsetLeft);
+        // console.log(bannerImg.offsetLeft);
 
 
 
         if (bannerImg.offsetLeft == -7200) {
 
             SwitchPoints(0);
-            console.log(index);
+            // console.log(index);
 
 
             setTimeout(function() {

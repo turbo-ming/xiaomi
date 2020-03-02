@@ -1,0 +1,66 @@
+[{
+        "id": 1,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0099822e42b4428cb25c4cdebc6ca53d.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "小米10",
+        "name": "骁龙865/1亿像素相机",
+        "price": "3999"
+
+    },
+    {
+        "id": 2,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2c16238f786e4f93bdb175d7bf21aa47.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi K30",
+        "name": "120Hz流速屏，全速热爱",
+        "price": "1599"
+
+    },
+    {
+        "id": 3,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/53641901fbc28cbcdb495b17fdf69e46.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi K30 5G",
+        "name": "双模5G，120Hz流速屏",
+        "price": "1999",
+        "del": "2799"
+
+    },
+    {
+        "id": 4,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d295c4fb500d163a7045dc715b47f808.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi 8",
+        "name": "5000mAh超长续航",
+        "price": "749",
+        "del": "699"
+    },
+    {
+        "id": 5,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c924c3f3436b6934495fd98f159ee3f7.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi 8A",
+        "name": "5000mAh超长续航",
+        "price": "599",
+        "del": "1399"
+    },
+    {
+        "id": 6,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c924c3f3436b6934495fd98f159ee3f7.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi K30",
+        "name": "千元4800万四摄",
+        "price": "599",
+        "del": "699"
+    },
+    {
+        "id": 7,
+        "ulr": "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6f2493e6c6fe8e2485c407e5d75e3651.jpg?thumb=1&w=200&h=200&f=webp&q=90",
+        "title": "Redmi K30",
+        "name": "6400万全场景四摄",
+        "price": "1299",
+        "del": "1399"
+    },
+    {
+        "id": 8,
+        "ulr": "http://localhost/src/images/r7.webp",
+        "title": "Redmi K30",
+        "name": "千元4800万四摄",
+        "price": "969",
+        "del": "999"
+    }
+]
