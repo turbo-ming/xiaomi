@@ -716,57 +716,59 @@
                                 .Price {
                                     margin: 10px 0 10px 0;
                                     color: #ff6700;
+                                    font-size: 14px;
                                     del {
                                         color: #b0b0b0;
                                         font-size: 14px;
+                                        padding-left: 6px;
                                     }
                                 }
                             }
-                        }
-                        .aside_last {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-                            width: 223px;
-                            height: 298px;
-                            // background: #fff;
-                            .aside_chil {
-                                height: 143px;
+                            .aside_last {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
                                 width: 223px;
-                                position: relative;
-                                a {
-                                    display: block;
-                                    height: 80px;
-                                    width: 100%;
-                                    p {
-                                        height: 60px;
-                                        width: 93px;
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: space-between;
-                                        position: absolute;
-                                        top: 42px;
-                                        left: 20px;
-                                        color: #333;
-                                        font-size: 14px;
-                                        span {
-                                            color: #ff6700;
-                                            font-size: 12px;
-                                        }
-                                    }
-                                    .Img {
-                                        position: absolute;
-                                        right: 20px;
-                                        top: 32px;
-                                        width: 80px;
+                                height: 298px;
+                                // background: #fff;
+                                .aside_chil {
+                                    height: 143px;
+                                    width: 223px;
+                                    position: relative;
+                                    a {
+                                        display: block;
                                         height: 80px;
-                                        img {
-                                            height: 100%;
-                                            width: 100%;
+                                        width: 100%;
+                                        p {
+                                            height: 60px;
+                                            width: 93px;
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: space-between;
+                                            position: absolute;
+                                            top: 42px;
+                                            left: 20px;
+                                            color: #333;
+                                            font-size: 14px;
+                                            span {
+                                                color: #ff6700;
+                                                font-size: 12px;
+                                            }
                                         }
-                                        .iconfont {
-                                            font-size: 60px;
-                                            color: #ff6700;
+                                        .Img {
+                                            position: absolute;
+                                            right: 20px;
+                                            top: 32px;
+                                            width: 80px;
+                                            height: 80px;
+                                            img {
+                                                height: 100%;
+                                                width: 100%;
+                                            }
+                                            .iconfont {
+                                                font-size: 60px;
+                                                color: #ff6700;
+                                            }
                                         }
                                     }
                                 }

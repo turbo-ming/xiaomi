@@ -145,7 +145,7 @@ function pageAdjust() {
 $('#header_search_text').on('focus', function() {
     $(this).css('color', 'black');
     var value = $(this).val();
-    console.log(value);
+    // console.log(value);
     if (value == '输入搜索内容') {
         $(this).val('');
     }
@@ -170,8 +170,8 @@ banner(val);
 
 function banner(opts) {
     //输入值为父级的ID以及最大子元素的类名
-    console.log(opts);
-    console.log(opts.fa_id);
+    // console.log(opts);
+    // console.log(opts.fa_id);
     var banner = document.getElementById(opts.fa_id); //获取当前banner的对象
     var banner_img = $("#" + opts.fa_id).children("." + opts.son_class); //获取所有子元素的对象
     var img_num = banner_img.length; //获取当前banner的图片张数
@@ -182,7 +182,7 @@ function banner(opts) {
 
     function init() {
         //初始化
-        console.log(img_num);
+        // console.log(img_num);
         //部分变量默认值初始化
         if (!speed) {
             speed = 1000;

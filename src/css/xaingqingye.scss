@@ -197,7 +197,7 @@
                     }
                 }
                 .active {
-                    border-color: #212121;
+                    border-color: #ccc;
                 }
             }
             .enlarge {
@@ -207,7 +207,7 @@
                 position: absolute;
                 top: 140px;
                 left: 48%;
-                background: url(../images/m1.jpg)no-repeat;
+                // background: url(../images/m1.jpg)no-repeat;
                 background-size: 800px 800px;
                 background-position: 0 0;
                 display: none;

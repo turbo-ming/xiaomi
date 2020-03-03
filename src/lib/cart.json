@@ -1,0 +1,36 @@
+[{
+        "id": 1,
+        "url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1555935546.09711490.jpg?thumb=1&w=80&h=80",
+        "title": "小米壁画电视",
+        "price": 6999,
+        "Total": 6999
+    },
+    {
+        "id": 2,
+        "url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1560238127.40319869.png?thumb=1&w=80&h=80",
+        "title": "小米手环",
+        "price": 209,
+        "Total": 209
+    },
+    {
+        "id": 3,
+        "url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1572941094.42616676.jpg?thumb=1&w=80&h=80",
+        "title": "小米CC9",
+        "price": 2799,
+        "Total": 2799
+    },
+    {
+        "id": 4,
+        "url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1558927605.77414956.jpg?thumb=1&w=80&h=80",
+        "title": "小米路由器",
+        "price": 99,
+        "Total": 99
+    },
+    {
+        "id": 5,
+        "url": "https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1551343984.14546114.jpg?thumb=1&w=80&h=80",
+        "title": "多功能头戴耳机",
+        "price": 189,
+        "Total": 189
+    }
+]

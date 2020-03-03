@@ -120,7 +120,7 @@ var timer = setInterval(function() {
 
 // 设置鼠标事件
 var bannerBox = document.getElementById("banner_cont");
-console.log(bannerBox);
+// console.log(bannerBox);
 
 //鼠标进入后， 清空自动调用
 bannerBox.onmouseenter = function() {

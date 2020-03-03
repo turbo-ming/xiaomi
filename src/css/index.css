@@ -821,14 +821,16 @@
 #case_3 #case3_cont .right ul li #cp_list section aside .Price {
   margin: 10px 0 10px 0;
   color: #ff6700;
+  font-size: 14px;
 }
 
 #case_3 #case3_cont .right ul li #cp_list section aside .Price del {
   color: #b0b0b0;
   font-size: 14px;
+  padding-left: 6px;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -836,19 +838,19 @@
   height: 298px;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil {
   height: 143px;
   width: 223px;
   position: relative;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a {
   display: block;
   height: 80px;
   width: 100%;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a p {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a p {
   height: 60px;
   width: 93px;
   display: flex;
@@ -861,12 +863,12 @@
   font-size: 14px;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a p span {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a p span {
   color: #ff6700;
   font-size: 12px;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a .Img {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a .Img {
   position: absolute;
   right: 20px;
   top: 32px;
@@ -874,12 +876,12 @@
   height: 80px;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a .Img img {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a .Img img {
   height: 100%;
   width: 100%;
 }
 
-#case_3 #case3_cont .right ul li #cp_list .aside_last .aside_chil a .Img .iconfont {
+#case_3 #case3_cont .right ul li #cp_list section .aside_last .aside_chil a .Img .iconfont {
   font-size: 60px;
   color: #ff6700;
 }

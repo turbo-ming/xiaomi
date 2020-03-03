@@ -1438,12 +1438,12 @@
                     </a>
                 </aside>
             </div>
-            <div class="right clear_fix">
+            <div class="right">
                 <ul class="right_show">
                     <li class="active2">
                         <div class="cp-list" id="cp_list">
-                            <section>
-                                <aside>
+                            <section id="cp_list_one">
+                                <!-- <aside>
                                     <div class="as_img"><img src="../images/r1.webp" alt=""></div>
                                     <h3>Redmi K30</h3>
                                     <p class="des">120Hz流速屏，全速热爱</p>
@@ -1480,10 +1480,11 @@
                                         <span>799</span>元
                                     </del>
                                     </p>
-                                </aside>
+                                </aside> -->
                             </section>
                             <section>
-                                <aside>
+                                <div id="cp_list_two" style="display: flex;justify-content: space-between;width: 700px">
+                                    <!-- <aside>
                                     <div class="as_img"><img src="../images/r5.webp" alt=""></div>
                                     <h3>Redmi K30</h3>
                                     <p class="des">5000mAh超长续航</p>
@@ -1515,7 +1516,8 @@
                                         <span>999</span>元
                                     </del>
                                     </p>
-                                </aside>
+                                </aside> -->
+                                </div>
                                 <div class="aside_last">
                                     <aside class="aside_chil">
 
@@ -1545,7 +1547,8 @@
                     </li>
                     <li>
                         <div class="cp-list" id="cp_list">
-                            <section>
+                            <section id="cp_list_three">
+                                <!-- 
                                 <aside>
                                     <div class="as_img"><img src="../images/r1.webp" alt=""></div>
                                     <h3>Redmi K30</h3>
@@ -1583,42 +1586,44 @@
                                         <span>799</span>元
                                     </del>
                                     </p>
-                                </aside>
+                                </aside> -->
                             </section>
                             <section>
-                                <aside>
-                                    <div class="as_img"><img src="../images/r5.webp" alt=""></div>
-                                    <h3>Redmi K30</h3>
-                                    <p class="des">5000mAh超长续航</p>
-                                    <p class="Price">
-                                        <span>599元起</span>
-                                        <del>
+                                <div id="cp_list_four" style="display: flex;justify-content: space-between;width: 700px">
+                                    <!-- <aside>
+                                        <div class="as_img"><img src="../images/r5.webp" alt=""></div>
+                                        <h3>Redmi K30</h3>
+                                        <p class="des">5000mAh超长续航</p>
+                                        <p class="Price">
+                                            <span>599元起</span>
+                                            <del>
                                         <span>699</span>元
                                     </del>
-                                    </p>
-                                </aside>
-                                <aside>
-                                    <div class="as_img"><img src="../images/r6.webp" alt=""></div>
-                                    <h3>Redmi K30</h3>
-                                    <p class="des">6400万全场景四摄</p>
-                                    <p class="Price">
-                                        <span>1199元起</span>
-                                        <del>
+                                        </p>
+                                    </aside>
+                                    <aside>
+                                        <div class="as_img"><img src="../images/r6.webp" alt=""></div>
+                                        <h3>Redmi K30</h3>
+                                        <p class="des">6400万全场景四摄</p>
+                                        <p class="Price">
+                                            <span>1199元起</span>
+                                            <del>
                                         <span>1399</span>元
                                     </del>
-                                    </p>
-                                </aside>
-                                <aside>
-                                    <div class="as_img"><img src="../images/r7.webp" alt=""></div>
-                                    <h3>Redmi K30</h3>
-                                    <p class="des">千元4800万四摄</p>
-                                    <p class="Price">
-                                        <span>969元起</span>
-                                        <del>
+                                        </p>
+                                    </aside>
+                                    <aside>
+                                        <div class="as_img"><img src="../images/r7.webp" alt=""></div>
+                                        <h3>Redmi K30</h3>
+                                        <p class="des">千元4800万四摄</p>
+                                        <p class="Price">
+                                            <span>969元起</span>
+                                            <del>
                                         <span>999</span>元
                                     </del>
-                                    </p>
-                                </aside>
+                                        </p>
+                                    </aside> -->
+                                </div>
                                 <div class="aside_last">
                                     <aside class="aside_chil">
 
@@ -1968,7 +1973,7 @@
             <div class="header">
                 <h2>视频</h2>
                 <a href="#">
-                    <p>查看全部 <i class="iconfont icon-youjiantou-tianchong"></i></p>
+                    <p><a href="https://www.mi.com/video">查看全部 <i class="iconfont icon-youjiantou-tianchong"></i></a></p>
                 </a>
 
             </div>
@@ -2128,23 +2133,9 @@
     <script src="../js/daohan.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/data.js"></script>
-    <!-- <script>
-        getList()
 
-        function getList() {
-            $.ajax({
-                url: '../lib/nav_top.json',
-                dataType: 'json',
-                success: function(res) {
-                    console.log(res);
-                    let str = ''
-                    res.forEach(item => {
-                        str += `<li>${ item.name }</li>`
-                    })
-                }
-            })
-        }
-    </script> -->
+    <script>
+    </script>
 </body>
 
 </html>
