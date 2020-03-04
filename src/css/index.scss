@@ -352,6 +352,13 @@
             li {
                 width: 308px;
                 height: 170px;
+                transition: all 0.3s;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 5px 5px 30px #ccc;
+                    cursor: pointer;
+                    margin-top: -2px;
+                }
                 img {
                     height: 100%;
                     width: 100%;

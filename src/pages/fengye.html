@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/fengye.css">
+    <link rel="stylesheet" href="../icon-font/iconfont.css">
+    <link rel="stylesheet" href="../lib/pagination/pagination.css">
+</head>
+
+<body>
+    <div id="topWrap">
+        <div id="topWrap_cont">
+            <section class="top_log">
+                <ul class="ul_1">
+                    <li>
+                        <a href="#">小米商城</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">MIUI</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">loT</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">云服务</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">金融</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">有品</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">小爱开放平台</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">企业团购</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">物质证照</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">协议规则</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">下载APP</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">SelectLocation</a>
+                    </li>
+                </ul>
+                <aside>
+                    <h2><i class="iconfont icon-gouwuche"></i>购物车<span>(0)</span></h2>
+                </aside>
+                <ul class="ul_2">
+                    <li>
+                        <a href="">登陆</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">注册</a>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="">消息通知</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="top_lis">
+                <h1></h1>
+                <form action="">
+                    <input type="text" class="txt" placeholder="小米9...">
+                    <button class="sub"><i class="iconfont icon-sousuo"></i>搜索</button>
+                </form>
+                <ul class="ul_3">
+                    <li>
+                        <a href="">小米手机</a>
+                    </li>
+                    <li>
+                        <a href="">Redmi 红米</a>
+                    </li>
+                    <li>
+                        <a href="">电视</a>
+                    </li>
+                    <li>
+                        <a href="">笔记本</a>
+                    </li>
+                    <li>
+                        <a href="">家电</a>
+                    </li>
+                    <li>
+                        <a href="">路由器</a>
+                    </li>
+                    <li>
+                        <a href="">智能硬件</a>
+                    </li>
+                    <li>
+                        <a href="">服务</a>
+                    </li>
+                    <li>
+                        <a href="">社区</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- 筛选条件 -->
+    <div id="screen">
+        <div id="screen_cont">
+            <p class="p_1">推荐</p>
+            <p class="p_2">价格</p>
+            <p class="p_3">销量</p>
+        </div>
+    </div>
+
+    <!-- 信息展示 -->
+    <div id="show">
+        <div id="show_cont">
+            <ul class="show_list">
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- 分页按钮 -->
+    <div class="Paging_list m-style"></div>
+
+
+
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/pagination/pagination.js"></script>
+    <script>
+        // 1 全局变量
+        var flag = true;
+
+        //  变量接受空数组
+        var idChang = [];
+        getList()
+
+        function getList() {
+            $.ajax({
+                url: '../lib/list.json',
+                dataType: 'json',
+                success: function(res) {
+
+
+                    //  发送请求获取数据
+                    $('.Paging_list').pagination({
+                        pageCount: Math.ceil(res.length / 19), // 总页数
+                        current: 1, // 当前页
+                        jump: false,
+                        coping: true,
+                        homePage: '首页', // 首页按钮的文本
+                        endPage: '末页', // 末页按钮的文本
+                        prevContent: '上页',
+                        nextContent: '>',
+                        callback: function(api) { // 当你切换页面的时候会触发
+                            // api.getCurrent() 获取当前是第几页
+                            // console.log(api.getCurrent())
+
+                            let curr = api.getCurrent();
+                            console.log(curr);
+                            // 包前 不包后
+                            var list = res.slice((curr - 1) * 20, curr * 20)
+                                // console.log(list);
+                            bindHtml(list)
+                        }
+                    })
+
+                    // 渲染第一页
+                    bindHtml(res.slice(0, 20))
+
+                    //  全局变量复制
+                    idChang = res;
+                }
+
+            })
+
+        }
+
+        // 写方法，里面调用
+        function bindHtml(list) {
+            console.log(list);
+            let str = '';
+            list.forEach(item => {
+                    str += `
+                <li>
+                        <img src=${item.url} alt="">
+                    <h2>${item.name}</h2>
+                    <p>${item.id}元</p>
+                    
+                </li>
+
+                `
+                })
+                // 填充
+            $('.show_list').html(str)
+        }
+
+        // 重新排序
+        var again = document.querySelector('.p_2');
+        again.onclick = function() {
+            flag = !flag;
+            idChang.sort(function(a, b) {
+                if (flag === true) {
+                    return a.id - b.id
+                } else {
+                    return b.id - a.id
+                }
+            });
+
+
+            $('.Paging_list').pagination({
+                pageCount: Math.ceil(idChang.length / 19), // 总页数
+                current: 1, // 当前页
+                jump: false,
+                coping: true,
+                homePage: '首页', // 首页按钮的文本
+                endPage: '末页', // 末页按钮的文本
+                prevContent: '上页',
+                nextContent: '>',
+                callback: function(api) { // 当你切换页面的时候会触发
+                    // api.getCurrent() 获取当前是第几页
+                    // console.log(api.getCurrent())
+
+                    let curr = api.getCurrent();
+                    console.log(curr);
+                    // 包前 不包后
+                    var list = idChang.slice((curr - 1) * 20, curr * 20)
+                        // console.log(list);
+                    bindHtml(list)
+                }
+            })
+
+            // 先把第一页数据渲染
+            bindHtml(idChang.slice(0, 20))
+        }
+    </script>
+</body>
+
+</html>

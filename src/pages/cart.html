@@ -20,7 +20,7 @@
                 <th class="Son5">操作</th>
             </tr>
             <!-- <tr class="shopList">
-                <td class="imgTd"><img class="shops" src="../images/vans.jpg" alt="" srcset=""></td>
+                  <td class="imgTd"><img class="shops" src="../images/vans.jpg" alt="" srcset=""></td>
                 <td class="titleTd">
                     <h6>Vans范斯 经典系列 Old Skool板鞋运动鞋 低帮经典款男女官方正品</h6>
                     <span>ID:#2001</span>
@@ -42,174 +42,143 @@
                 <td class="Son5">
                     <img class="del" src="../images/del.png" alt="">
                 </td>
-            </tr> -->
+            </tr>-->
             <tfoot>
                 <tr class="countall">
+                    <td class="back"> <a href="./index11.html">继续购物</a></td>
                     <td class="countRight">
-                        <span>总价为:  <b class="sum">1929.45 py6</b></span>
-                        <!-- <span>为您节省了: <u class="discount">579.47 py6</u></span> -->
+                        <span>合计:  <b class="sum">1929.45 元</b></span>
+
                     </td>
+                    <td class="Total"><button>去结算</button></td>
                 </tr>
+
             </tfoot>
         </tbody>
 
     </table>
 
 
+
+
+
+
+    <script src="../lib/jquery/jquery.min.js"></script>
     <script>
-        var lists = [{
-            img: 'vans.jpg',
-            title: 'Vans范斯 经典系列 Old Skool板鞋运动鞋 低帮经典款男女官方正品',
-            id: 2001,
-            size: '37',
-            oriPrice: 399.99,
-            nowPrice: 299.98,
-            save: 100.01,
-        }, {
-            img: 'bag.png',
-            title: 'Gucci Dressage Original GG Ganvas Tote Bag 296850 Coffe',
-            id: 24234,
-            size: 'Defalt',
-            oriPrice: 180.96,
-            nowPrice: 120.69,
-            save: 60.27
-        }, {
-            img: 'converse.jpg',
-            title: 'CONVERSE匡威官方 Batman 80th 蝙蝠侠80周年联名 高帮 167303C',
-            id: 32001,
-            size: '37',
-            oriPrice: 259.98,
-            nowPrice: 209.48,
-            save: 50.5
-        }, {
-            img: 'bsdon.jpg',
-            title: '波司登冬季新款大毛领羽绒服女中长款厚款防寒冬天外套B80141038',
-            id: 5884,
-            size: '160/84A',
-            oriPrice: 1399.99,
-            nowPrice: 1099.30,
-            save: 300.69
-        }, {
-            img: 'olay.jpg',
-            title: 'Olay玉兰油大红瓶新生塑颜金纯面霜50g 补水保湿修护紧致护肤霜女',
-            id: 6854,
-            size: '50g/ml',
-            oriPrice: 268.00,
-            nowPrice: 200.00,
-            save: 68,
-        }];
+        cart();
+
+        function cart() {
+            $.ajax({
+                url: '../lib/cart.json',
+                dataType: 'json',
+                success: function(res) {
+                    // console.log(res);
+                    let str = '';
+                    res.forEach(item => {
+                            str += `
+                    <tr class="shopList">
+                    <td class="imgTd"><img class="shops" src=${item.url} alt="" srcset=""></td>
+                    <td class="titleTd">
+                        <h6>${item.title}</h6>
+ 
+                    </td>
+                    <td class="Son2">
+                        <span class="reduce">-</span>
+                        <input type="text" value="1" class="count">
+                        <span class="add">+</span>
+                    </td>
+                    <td class="Son3">
+
+                         <b class="nowPrice">${item.price} 元</b>
+                     </td>
+                     <td class="Son4">
+                         <span class="priceAll">${item.Total} 元</span>
+                      
+                     </td>
+                     <td class="Son5">
+                         <img class="del" src="../images/del.png" alt="">
+                     </td>
+                     </tr>
+                    `
+                        })
+                        //填充
+                    var tbody = document.querySelector(".shopS");
+                    tbody.innerHTML += str;
+                    //渲染成功
+
+                    var nowPrice = document.querySelector(".nowPrice");
+                    var del = document.querySelector(".del");
+                    var priceAll = document.querySelector(".priceAll");
 
 
-        var tbody = document.querySelector(".shopS");
-        var Sum = document.querySelector(".num")
-        var oriPrice = document.querySelectorAll('.oriPrice'),
-            nowPrice = document.querySelectorAll('.nowPrice');
-
-        lists.forEach(function(item) {
-
-            var res = `
-            <tr class="shopList">
-                <td class="imgTd"><img class="shops" src="../images/${item.img}" alt="" srcset=""></td>
-                <td class="titleTd">
-                    <h6>${item.title}</h6>
-                    <span>ID:#${item.id}</span>
-                    <span>Size:${item.size}</span>
-                </td>
-                <td class="Son2">
-                    <span class="reduce">-</span>
-                    <input type="text" value="1" class="count">
-                    <span class="add">+</span>
-                </td>
-                <td class="Son3">
-                   
-                    <b class="nowPrice">${item.nowPrice} 元</b>
-                </td>
-                <td class="Son4">
-                    <span class="priceAll">${item.nowPrice} 元</span>
-                    <span class="saveAll">You save ${(item.save).toFixed(2)} py6</span>
-                </td>
-                <td class="Son5">
-                    <img class="del" src="../images/del.png" alt="">
-                </td>
-                </tr>`
-            tbody.innerHTML += res;
-        });
-
-        //渲染成功
-
-        //购物车开始
-
-        var nowPrice = document.querySelector(".nowPrice");
-
-        var del = document.querySelector(".del");
-        var priceAll = document.querySelector(".priceAll");
-
-
-        //声明一个变量先不赋值,点击添加,减少商品数量,或者删除的时候在重新赋值,再计算总价
-        var priceAll;
-        var saveAll;
+                    //声明一个变量先不赋值,点击添加,减少商品数量,或者删除的时候在重新赋值,再计算总价
+                    var priceAll;
+                    var saveAll;
 
 
 
-        var Sum = document.querySelectorAll('.sum')[0],
-            discount = document.querySelectorAll('.discount')[0];
+                    var Sum = document.querySelectorAll('.sum')[0],
+                        discount = document.querySelectorAll('.discount')[0];
 
 
 
-        tbody.onclick = function(e) {
-                var evt = e.target;
+                    tbody.onclick = function(e) {
+                            var evt = e.target;
 
 
-                if (evt.className == "add") {
+                            if (evt.className == "add") {
 
-                    var saveMoney = (evt.parentNode.nextElementSibling.firstElementChild.innerHTML.split(' ')[0] * 1) - (evt.parentNode.nextElementSibling.lastElementChild.innerHTML.split(' ')[0] * 1);
+                                var saveMoney = (evt.parentNode.nextElementSibling.firstElementChild.innerHTML.split(' ')[0] * 1) - (evt.parentNode.nextElementSibling.lastElementChild.innerHTML.split(' ')[0] * 1);
 
-                    //点击+号时把值重新赋值给上一个兄弟元素，就是input框的value值
-                    evt.previousElementSibling.value = evt.previousElementSibling.value * 1 + 1;
-                    // console.log(saveMoney.toFixed(2));
+                                //点击+号时把值重新赋值给上一个兄弟元素，就是input框的value值
+                                evt.previousElementSibling.value = evt.previousElementSibling.value * 1 + 1;
+                                // console.log(saveMoney.toFixed(2));
 
-                    //现价乘以数量,就是成交交价格
-                    evt.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = (evt.previousElementSibling.value * evt.parentNode.nextElementSibling.lastElementChild.innerHTML.split(' ')[0]).toFixed(2) + "  元";
+                                //现价乘以数量,就是成交交价格
+                                evt.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = (evt.previousElementSibling.value * evt.parentNode.nextElementSibling.lastElementChild.innerHTML.split(' ')[0]).toFixed(2) + "  元";
 
-                    //当添加商品的时候重新获取 saveAll和priceAll的值，再重新计算总价
-                    // saveAll = document.querySelectorAll('.saveAll');
-                    priceAll = document.querySelectorAll('.priceAll');
+                                //当添加商品的时候重新获取 saveAll和priceAll的值，再重新计算总价
+                                // saveAll = document.querySelectorAll('.saveAll');
+                                priceAll = document.querySelectorAll('.priceAll');
 
-                } else if (evt.className == "reduce") {
+                            } else if (evt.className == "reduce") {
 
-                    if (evt.nextElementSibling.value > 0) {
-                        evt.nextElementSibling.value = evt.nextElementSibling.value * 1 - 1;
-                        evt.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = (evt.nextElementSibling.value * evt.parentNode.nextElementSibling.firstElementChild.innerHTML.split(' ')[0]).toFixed(2) + ' 元';
+                                if (evt.nextElementSibling.value > 0) {
+                                    evt.nextElementSibling.value = evt.nextElementSibling.value * 1 - 1;
+                                    evt.parentNode.nextElementSibling.nextElementSibling.firstElementChild.innerHTML = (evt.nextElementSibling.value * evt.parentNode.nextElementSibling.firstElementChild.innerHTML.split(' ')[0]).toFixed(2) + ' 元';
 
-                        //当减少商品数量的时候,再重新获取saveAll和priceAll的值,再重新计算总价
+                                    //当减少商品数量的时候,再重新获取saveAll和priceAll的值,再重新计算总价
 
-                        priceAll = document.querySelectorAll('.priceAll');
+                                    priceAll = document.querySelectorAll('.priceAll');
+                                }
+                            }
+
+                            //删除购物车
+                            if (evt.className == "del") {
+                                // console.log(evt);
+                                if (confirm("确定要删除购物车吗？？？？？？？")) {
+                                    evt.parentNode.parentNode.remove();
+
+                                    priceAll = document.querySelectorAll('.priceAll');
+                                } else {
+
+                                }
+                            }
+
+                            //调用封装的函数
+                            summary(priceAll, Sum, 0)
+                                // summary(saveAll, discount, 2)
+                        }
+                        //封装总价函数
+                    function summary(arr, ele, idx) {
+                        var n1 = 0;
+                        arr.forEach(function(items) {
+                            n1 += (items.innerHTML.split(' ')[idx] * 1);
+                        })
+                        ele.innerHTML = n1.toFixed(2) + ' 元'
                     }
                 }
-
-                //删除购物车
-                if (evt.className == "del") {
-                    // console.log(evt);
-                    if (confirm("确定要删除购物车吗？？？？？？？")) {
-                        evt.parentNode.parentNode.remove();
-
-                        priceAll = document.querySelectorAll('.priceAll');
-                    } else {
-
-                    }
-                }
-
-                //调用封装的函数
-                summary(priceAll, Sum, 0)
-                    // summary(saveAll, discount, 2)
-            }
-            //封装总价函数
-        function summary(arr, ele, idx) {
-            var n1 = 0;
-            arr.forEach(function(items) {
-                n1 += (items.innerHTML.split(' ')[idx] * 1);
             })
-            ele.innerHTML = n1.toFixed(2) + ' py6'
         }
     </script>
 </body>

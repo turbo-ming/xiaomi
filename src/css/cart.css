@@ -136,7 +136,23 @@ th {
 
 .countall {
     justify-content: space-between;
-    height: 130px;
+    height: 50px;
+    /* width: 100%; */
+}
+
+.countall .sum {
+    font-size: 28px;
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+.countall .Total button {
+    height: 50px;
+    border: 0;
+    background: #ff6700;
+    width: 200px;
+    color: #fff;
+    font-size: 18px
 }
 
 .countall td {
@@ -159,6 +175,12 @@ th {
     color: orangered;
 }
 
+.countRight {
+    padding-right: 20px;
+    color: #ff6700;
+    float: right;
+}
+
 .countRight span:nth-of-type(2) {
     line-height: 40px;
     color: rgb(41, 141, 70);
@@ -173,6 +195,7 @@ th {
     color: white;
     font-weight: bolder;
     padding-left: 9px;
+    cursor: pointer;
 }
 
 .del:hover {
@@ -191,5 +214,21 @@ th {
 
 .countall {
     float: right;
-    padding-right: 100px;
+}
+
+.countall .back {
+    float: left;
+}
+
+.countall .back a {
+    color: #757575;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    left: -510px;
+}
+
+.countall .back a:hover {
+    color: #ff6700;
+    cursor: pointer;
 }

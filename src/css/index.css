@@ -400,6 +400,14 @@
 #case_1 #case1_cont ul li {
   width: 308px;
   height: 170px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+#case_1 #case1_cont ul li:hover {
+  box-shadow: 5px 5px 30px #ccc;
+  cursor: pointer;
+  margin-top: -2px;
 }
 
 #case_1 #case1_cont ul li img {
