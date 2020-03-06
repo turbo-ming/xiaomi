@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/shoppingCart.css">
+</head>
+
+<body>
+    <div id="cart">
+
+    </div>
+
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script>
+        // 先拿到数据
+        const cartList = JSON.parse(localStorage.getItem('cartList'));
+
+        //  判断是否有这个数据
+        if (!cartList) {
+            alert('购物车为空')
+        } else {
+            // 渲染购物车
+            bindHtml();
+
+            // 事件
+            bindEvent();
+        }
+        console.log(cartList);
+
+        function bindHtml() {
+            //整体渲染
+            //  全选   
+            let selectAll = cartList.every(item => {
+                // console.log(item.isSelect);
+
+                // 全部选中才返回ture 只要有一条没有选中都不反悔
+                return item.isSelect === true
+            })
+
+            let str = `
+            <div class="top">
+            <input type="checkbox" class="selectAll" name="" id="" ${selectAll ? 'checked' : ''}><p>全选</p>
+                <section class="goodsname">商品名称</section/>
+                <section class="jiage">单价</section/>
+                <section class="num">数量</section/>
+                <section class="sum">小计</section/>
+                <section class="act">操作</section/>
+        </div>
+        <div class="center">
+            <ul>
+               
+                `
+            cartList.forEach(item => {
+                str += `
+                <li>
+                    <div class="select">
+                        <input data-id=${ item.id } class="Single_election" type="checkbox"  ${ item.isSelect ? 'checked' : '' }>
+                    </div>
+                    <div class="info">
+                        <img src="${item.Img1}" alt="">
+                        <p>${item.title}</p>
+                    </div> <p>${item.price}</p>
+                    <div class="number">
+                       
+                        <button class="reduce" data-id=${ item.id }>-</button>
+                        <input type="text" value="${item.number}" class="count">
+                        <button class="add" data-id=${ item.id }>+</button>
+                    </div>
+                    <p class="xiaoji">${item.xiaoji}元</p>
+                    <div class="del" data-id=${ item.id }>
+                       
+                    </div>
+                </li>
+             `
+            })
+            let selectArr = cartList.filter(item => item.isSelect)
+                // console.log(selectArr)
+                // 选中商品数量计算
+            let selectNumber = 0
+                // 选中商品总价
+            let selectPrice = 0
+            selectArr.forEach(item => {
+                selectNumber += item.number
+                selectPrice += item.xiaoji
+            })
+            str += `
+            </ul>
+        </div>
+        <div class="bottom">
+        <p class="goshoping"><a href="./index11.html">继续购物</a></p>
+            <p class="selected">已选中<span>${selectNumber}</span>件商品</p>
+            <p class="allPrice">合计：<span>${selectPrice }</span>元</p>
+            <button class="pay" ${ selectArr.length ? '' : 'disabled'}>去支付</button>
+          
+        </div>
+            `
+
+            $('#cart').html(str);
+        }
+
+        // 事件
+        function bindEvent() {
+            // 全选按钮
+            $('#cart').on('change', '.selectAll', function() {
+                console.log(this.checked);
+                cartList.forEach(items => {
+                    items.isSelect = this.checked
+                })
+                bindHtml()
+
+                // 在从新存储一遍 localStorage
+                localStorage.setItem('cartList', JSON.stringify(cartList))
+            })
+
+            // 单选时间
+            $('#cart').on('change', '.Single_election', function() {
+
+                const id = $(this).data('id')
+                    // console.log($(this).data('id'));
+                    // 找到数组中 id 一样的那一条数据改变一下 isSelect 属性
+                cartList.forEach(item => {
+                    if (item.id === id) {
+                        item.isSelect = !item.isSelect
+                    }
+                })
+
+                // 重新渲染页面
+                bindHtml()
+
+                // 重新存储到 lcoalStorage 里面
+                localStorage.setItem('cartList', JSON.stringify(cartList))
+
+            })
+
+            //减少商品数量事件
+            $("#cart").on('click', '.reduce', function() {
+
+                let id = $(this).data('id');
+                cartList.forEach(item => {
+                        if (item.id === id) {
+                            item.number > 1 ? item.number-- : '';
+                            item.xiaoji = item.price * item.number;
+                        }
+                    })
+                    // 重新渲染页面
+                bindHtml()
+
+                // 重新存储到 lcoalStorage 里面
+                localStorage.setItem('cartList', JSON.stringify(cartList))
+            })
+
+            //条件商品数量事件
+            $('#cart').on('click', '.add', function() {
+                let id = $(this).data('id');
+                cartList.forEach(item => {
+                        if (item.id === id) {
+                            item.number++;
+                            item.xiaoji = item.price * item.number;
+                        }
+                    })
+                    // 重新渲染页面
+                bindHtml()
+
+                // 重新存储到 lcoalStorage 里面
+                localStorage.setItem('cartList', JSON.stringify(cartList))
+            })
+
+            //点击删除事件
+            $('#cart').on('click', '.del', function() {
+                let id = $(this).data('id');
+                // console.log("把数据删掉");
+                cartList.forEach(function(item, index) {
+                        if (item.id === id) {
+                            console.log(item);
+
+                            cartList.splice(index, 1)
+                        }
+
+
+                    })
+                    //     // 重新渲染页面
+                bindHtml()
+
+                // //重新存储到 lcoalStorage 里面
+                localStorage.setItem('cartList', JSON.stringify(cartList))
+            })
+
+            // 清除购物车事件
+            $("#cart").on('click', '.clear', function() {
+                console.log("清除购物车");
+
+            })
+        }
+    </script>
+</body>
+
+</html>

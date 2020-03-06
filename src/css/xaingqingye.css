@@ -371,7 +371,7 @@
   margin-top: 10px;
 }
 
-#case1 #case1_cont .right .Buy a {
+#case1 #case1_cont .right .Buy span {
   display: block;
   float: left;
 }
@@ -385,10 +385,28 @@
   font-size: 16px;
   background: #ff6700;
   margin-right: 12px;
+  border: 0;
+  cursor: pointer;
+  float: left;
 }
 
 #case1 #case1_cont .right .Buy .like {
+  display: block;
   width: 143px;
-  background: url(../images/like_03.jpg) no-repeat;
+  background: #e5e5e5;
+  text-align: center;
   height: 100%;
+  transition: all 0.3s;
+}
+
+#case1 #case1_cont .right .Buy .like a {
+  color: #fff;
+  width: 100%;
+  font-weight: 600;
+  line-height: 58px;
+  text-align: center;
+}
+
+#case1 #case1_cont .right .Buy .like a:hover {
+  color: #ff6700;
 }

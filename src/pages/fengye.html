@@ -204,7 +204,7 @@
                 <li>
                         <img src=${item.url} alt="">
                     <h2>${item.name}</h2>
-                    <p>${item.id}元</p>
+                    <p>${item.price}元</p>
                     
                 </li>
 
@@ -220,9 +220,9 @@
             flag = !flag;
             idChang.sort(function(a, b) {
                 if (flag === true) {
-                    return a.id - b.id
+                    return a.price - b.price
                 } else {
-                    return b.id - a.id
+                    return b.price - a.price
                 }
             });
 
@@ -234,7 +234,7 @@
                 coping: true,
                 homePage: '首页', // 首页按钮的文本
                 endPage: '末页', // 末页按钮的文本
-                prevContent: '上页',
+                prevContent: '<',
                 nextContent: '>',
                 callback: function(api) { // 当你切换页面的时候会触发
                     // api.getCurrent() 获取当前是第几页

@@ -58,11 +58,15 @@ const htmlHandler = () => {
 
 // 5. 书写一个移动 image 文件的方法
 const imgHandler = () => {
-    return gulp.src('./src/images/**') // images 文件夹下的所有文件
-        .pipe(gulp.dest('./dist/images')) // 放到指定目录就可以了
-}
-
-// 6. 书写一个移动 lib 文件的方法
+        return gulp.src('./src/images/**') // images 文件夹下的所有文件
+            .pipe(gulp.dest('./dist/images')) // 放到指定目录就可以了
+    }
+    //5-1 书写一个移动 iconfont文件的方法
+const iconHandler = () => {
+        return gulp.src('./src/icon-font/**') // images 文件夹下的所有文件
+            .pipe(gulp.dest('./dist/icon-font')) // 放到指定目录就可以了
+    }
+    // 6. 书写一个移动 lib 文件的方法
 const libHandler = () => {
     return gulp.src('./src/lib/**')
         .pipe(gulp.dest('./dist/lib'))
@@ -98,13 +102,7 @@ const serverHandler = () => {
         })) // 开启服务器
 }
 
-// const sassHandler = () => {
-//     return gulp.src('./src/sass/*.scss')
-//         .pipe(sass())
-//         .pipe(autoprefixer())
-//         .pipe(cssmin())
-//         .pipe(gulp.dest('./dist/sass'))
-// }
+
 
 // 9. 自动监控文件
 //    监控 src 下下面的文件, 只要一修改, 就执行对应的任务
@@ -117,12 +115,14 @@ const watchHandler = () => {
     gulp.watch('./src/lib/**', libHandler)
     gulp.watch('./src/images/**', imgHandler)
         // gulp.watch('./src/sass/*.scss', sass)
+
 }
 
 
 module.exports.default = gulp.series(
     delHandler,
     gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler),
-    serverHandler,
-    watchHandler
+    // serverHandler,
+    iconHandler,
+    // watchHandler
 )

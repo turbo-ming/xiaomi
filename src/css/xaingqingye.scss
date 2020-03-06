@@ -306,7 +306,7 @@
             .Buy {
                 height: 54px;
                 margin-top: 10px;
-                a {
+                span {
                     display: block;
                     float: left;
                 }
@@ -319,11 +319,27 @@
                     font-size: 16px;
                     background: #ff6700;
                     margin-right: 12px;
+                    border: 0;
+                    cursor: pointer;
+                    float: left;
                 }
                 .like {
+                    display: block;
                     width: 143px;
-                    background: url(../images/like_03.jpg)no-repeat;
+                    background: #e5e5e5;
+                    text-align: center;
                     height: 100%;
+                    transition: all 0.3s;
+                    a {
+                        color: #fff;
+                        width: 100%;
+                        font-weight: 600;
+                        line-height: 58px;
+                        text-align: center;
+                        &:hover {
+                            color: #ff6700;
+                        }
+                    }
                 }
             }
         }

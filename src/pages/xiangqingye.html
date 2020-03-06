@@ -124,31 +124,31 @@
     <div id="case1">
         <div id="case1_cont">
             <div class="left" id="left">
-                <!-- <section class="show">
-                    <img src="../images/m1.jpg" alt="">
+                <section class="show">
+                    <img src="" alt="">
                     <aside class="mask"></aside>
                 </section>
                 <div class="list">
-                    <p class="active" bigImg="../images/m1.jpg" img="../images/m1.jpg">
+                    <p class="active p_one" bigImg="../images/m1.jpg" img="../images/m1.jpg">
                         <img src="../images/m1.jpg" alt="">
                     </p>
-                    <p bigImg="../images/m2.jpg" img="../images/m2.jpg">
+                    <p class="p_two" bigImg="../images/m2.jpg" img="../images/m2.jpg">
                         <img src="../images/m2.jpg" alt="">
                     </p>
-                    <p bigImg="../images/m3.jpg" img="../images/m3.jpg">
+                    <p class="p_three" bigImg="../images/m3.jpg" img="../images/m3.jpg">
                         <img src="../images/m3.jpg" alt="">
                     </p>
                 </div>
-                <div class="enlarge"></div> -->
+                <div class="enlarge"></div>
             </div>
             <div class="right">
                 <div class="top_info">
-                    <h2>Redmi K30</h2>
+                    <h2 class="name">Redmi K30</h2>
                     <p class="sale_desc" id="J_desc">
                         <font color="#ff4a00">「享小米/花呗6期免息」</font>120Hz高帧率流速屏 / 索尼6400万前后六摄 / 6.67''小孔径全面屏 / 最高可选8GB+256GB大存储 / 高通骁龙730G处理器 / 3D四曲面玻璃机身 / 4500mAh+27W快充 / 多功能NFC
                     </p>
                     <h3>小米自营</h3>
-                    <h4>2199元</h4>
+                    <h4 class="price">2199元</h4>
                 </div>
                 <section class="address">
                     <p>
@@ -161,24 +161,10 @@
                     </p>
                     <h2>有现货</h2>
                 </section>
-                <section class="Edition">
-                    <h2>选择版本</h2>
-                    <aside class="as_1">
-                        <p><span>8GB+128GB</span><em>1899元</em></p>
-                    </aside>
-                    <aside>
-                        <p><span>8GB+128GB</span><em>1899元</em></p>
-                    </aside>
-                    <aside class="as_2">
-                        <p><span>8GB+128GB</span><em>1899元</em></p>
-                    </aside>
-                    <aside>
-                        <p><span>8GB+128GB</span><em>1899元</em></p>
-                    </aside>
-                </section>
+
                 <section class="Buy">
-                    <a href="" class="buy">加入购物车</a>
-                    <a href="" class="like"></a>
+                    <button class="buy" id="buy">加入购物车</button>
+                    <span class="like"><a href="./shoppingCart.html">去购物车看看</a></span>
                 </section>
             </div>
         </div>
@@ -188,175 +174,198 @@
     <!-- 发送ajax请求 -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <script>
+        const info = JSON.parse(localStorage.getItem('goodsInfo'));
+        // 详情页传来的数据
+        if (!info) {
+            alert('没有数据')
+                // 跳转回列表页面
+            window.location.href = "./index11.html"
+        }
+        bindHtml()
+
+        function bindHtml() {
+            $('.show img').attr('src', info.Img1)
+            $('.p_one').attr('bigImg', info.Img1)
+            $('.p_one').attr('img', info.Img1)
+            $('.p_one img').attr('src', info.Img1)
+            $('.p_two').attr('bigImg', info.Img2)
+            $('.p_two').attr('img', info.Img2)
+            $('.p_two img').attr('src', info.Img2)
+            $('.p_three').attr('img', info.Img3)
+            $('.p_three').attr('bigImg', info.Img3)
+            $('.p_three img').attr('src', info.Img3)
+            $('.name').text(info.title);
+            $('.price').text('价格：' + info.price)
+        }
+
+
+
+        // 点击添加购物车
+        $('.buy').click(() => {
+            // console.log(111);
+            alert("加入购物车成功，快去查看吧！！")
+            const cartList = JSON.parse(localStorage.getItem('cartList')) || [];
+            console.log(cartList);
+            let exits = cartList.some(item => {
+                // 数组里面每一个的 id === 本页面的这条数据的 id
+                return item.id === info.id
+            })
+            if (exits) {
+                // 表示有这个信息了,让 number ++
+
+                let data = null
+                for (let i = 0; i < cartList.length; i++) {
+                    if (cartList[i].id === info.id) {
+                        data = cartList[i]
+                        break
+                    }
+                }
+
+                data.number++
+                    //  数量添加的时候, 小计价格要改变
+                    data.xiaoji = data.number * data.price // 数量 * 单价
+            } else {
+
+                // push 之前, 向里面添加一个 number 信息值为 1
+                info.number = 1
+
+                // 4-5. 多添加一些信息
+                info.xiaoji = info.price // 因为默认是第一个, 小计就是单价
+                info.isSelect = false
+                cartList.push(info)
+            }
+            // 在存储到 localStorage 里面
+            localStorage.setItem('cartList', JSON.stringify(cartList));
+
+
+        })
+
         getFdj();
-        var parmas = location.search.slice(1); //获取id=1
-        var id = parmas.split("=")[1] * 1;
-        console.log(id);
-
-
+        // var parmas = location.search.slice(1); //获取id=1
         function getFdj() {
-            $.ajax({
-                    url: '../lib/xiangqingye.json',
-                    dataType: 'json',
-                    success: function(res) {
-                        console.log(res);
-                        let str = '';
 
-                        let change = res.filter(function(items, index) {
-                            return items.id === id;
-                            // console.log(items.id); 
-
-                        })[0]
-                        console.log(change);
-
-                        console.log(change.Img3);
+            //渲染成功开始写放大镜功能
 
 
-                        str += `
-                        <section class="show">
-                    <img src=${change.Img1} alt="">
-                    <aside class="mask"></aside>
-                </section>
-                <div class="list">
-                    <p class="active" bigImg=${change.Img1} img=${change.Img1}>
-                        <img src=${change.Img1}>
-                    </p>
-                    <p bigImg=${change.Img2} img=${change.Img2}>
-                        <img src=${change.Img2} alt="">
-                    </p>
-                    <p bigImg=${change.Img3} img=${change.Img3}>
-                        <img src=${change.Img3} alt="">
-                    </p>
-                </div>
-                <div class="enlarge"></div>
-                        `
-                        $('#left').html(str);
+            //  获取非内联样式样式
+            function getStyle(ele, attr) {
+                var style;
+                if (window.getComputedStyle) {
+                    // attr 是一个 字符串 对象[字符串]
+                    style = window.getComputedStyle(ele)[attr];
+                } else {
+                    style = ele.currentStyle[attr];
+                }
+                return style;
+            }
+            class Enlarge {
+                constructor(ele) {
+                    this.ele = document.querySelector(ele);
+                    this.init();
+                }
 
-                        //渲染成功开始写放大镜功能
+                init() {
+                    this.show = this.ele.querySelector('.show');
+                    this.mask = this.ele.querySelector('.mask');
+                    this.enlarge = this.ele.querySelector('.enlarge');
 
-                        //  获取非内联样式样式
-                        function getStyle(ele, attr) {
-                            var style;
-                            if (window.getComputedStyle) {
-                                // attr 是一个 字符串 对象[字符串]
-                                style = window.getComputedStyle(ele)[attr];
-                            } else {
-                                style = ele.currentStyle[attr];
-                            }
-                            return style;
-                        }
-                        class Enlarge {
-                            constructor(ele) {
-                                this.ele = document.querySelector(ele);
-                                this.init();
-                            }
-
-                            init() {
-                                this.show = this.ele.querySelector('.show');
-                                this.mask = this.ele.querySelector('.mask');
-                                this.enlarge = this.ele.querySelector('.enlarge');
-
-                                //鼠标移入show盒子，显示mask和enlarge
-                                this.show.onmouseover = () => {
-                                    this.mask.style.display = this.enlarge.style.display = 'block';
-                                    this.setStyle();
-                                    this.move();
-                                }
-
-                                //鼠标移出隐藏
-                                this.show.onmouseout = () => {
-                                    this.mask.style.display = this.enlarge.style.display = 'none';
-                                }
-
-                                // 获取小图的标签，并且绑定点击事件？
-                                this.p = this.ele.querySelector('.list').children;
-                                let _this = this;
-                                for (let i = 0; i < this.p.length; i++) {
-                                    this.p[i].onmouseover = function() {
-                                        _this.change(this);
-                                    }
-
-                                }
-                            }
-
-                            setStyle() {
-                                // 设置放大镜盒子的大小
-                                // 放大镜盒子的大小 = 遮罩层盒子的大小 * 放大镜盒子背景图的大小 / show盒子的大小
-
-                                // 遮罩层盒子的大小
-                                this.maskWidth = this.mask.offsetWidth;
-                                this.maskHeight = this.mask.offsetHeight;
-
-                                //放大镜背景的大小
-                                this.bgx = parseInt(getStyle(this.enlarge, 'background-size').split(' ')[0]);
-                                this.bgy = parseInt(getStyle(this.enlarge, 'background-size').split(' ')[1]);
-
-                                //show的大小
-                                this.showWidth = this.show.clientWidth;
-                                this.showHeight = this.show.clientHeight;
-
-                                let enlargeX = this.maskWidth * this.bgx / this.showWidth;
-                                let enlargeY = this.maskHeight * this.bgy / this.showHeight;
-
-                                this.enlarge.style.width = enlargeX + 'px';
-                                this.enlarge.style.height = enlargeY + 'px';
-
-                            }
-                            move() {
-                                // 改变遮罩层的位置 和 放大镜背景图的位置
-                                this.show.onmousemove = (e) => {
-                                    let left = e.clientX + document.documentElement.scrollLeft - this.ele.offsetLeft - this.maskWidth / 2 - 50;
-                                    let top = e.clientY + document.documentElement.scrollTop - this.ele.offsetTop - this.maskHeight / 2 - 100;
-
-                                    // 边界值的判断
-                                    if (left <= 0) {
-                                        left = 0;
-                                    }
-                                    if (top <= 0) {
-                                        top = 0;
-                                    }
-                                    if (left >= this.showWidth - this.maskWidth) {
-                                        left = this.showWidth - this.maskWidth;
-                                    }
-                                    if (top >= this.showHeight - this.maskHeight) {
-                                        top = this.showHeight - this.maskHeight
-                                    }
-                                    // 移动遮罩层
-                                    this.mask.style.left = left + 'px';
-                                    this.mask.style.top = top + 'px';
-
-                                    // 移动背景图
-                                    //  背景图移动的距离 = 背景图 * mask移动距离 / show盒子的大小
-                                    let bgPX = this.bgx * left / this.showWidth;
-                                    let bgPY = this.bgy * top / this.showHeight;
-                                    this.enlarge.style.backgroundPosition = `-${bgPX}px -${bgPY}px`;
-                                }
-                            }
-                            change(ele) {
-                                //  排他思想
-                                for (let j = 0; j < this.p.length; j++) {
-                                    this.p[j].classList.remove('active');
-
-                                }
-                                ele.classList.add('active');
-
-                                let bigImg = ele.getAttribute('bigImg') // 放大镜的背景图
-                                let img = ele.getAttribute('img'); // show 盒子显示的图片
-
-                                // 获取show盒子下面的img图片
-                                this.img = this.show.querySelector('img');
-
-                                // 给show盒子下面的img图片设置src属性的属性值
-                                this.img.setAttribute('src', img)
-                                this.enlarge.style.backgroundImage = `url(${bigImg})`
-                            }
-                        }
-                        //操作对象
-                        new Enlarge('.left')
+                    //鼠标移入show盒子，显示mask和enlarge
+                    this.show.onmouseover = () => {
+                        this.mask.style.display = this.enlarge.style.display = 'block';
+                        this.setStyle();
+                        this.move();
                     }
 
-                })
-                // 请求成功之后执行函数
+                    //鼠标移出隐藏
+                    this.show.onmouseout = () => {
+                        this.mask.style.display = this.enlarge.style.display = 'none';
+                    }
+
+                    // 获取小图的标签，并且绑定点击事件？
+                    this.p = this.ele.querySelector('.list').children;
+                    let _this = this;
+                    for (let i = 0; i < this.p.length; i++) {
+                        this.p[i].onmouseover = function() {
+                            _this.change(this);
+                        }
+
+                    }
+                }
+
+                setStyle() {
+                    // 设置放大镜盒子的大小
+                    // 放大镜盒子的大小 = 遮罩层盒子的大小 * 放大镜盒子背景图的大小 / show盒子的大小
+
+                    // 遮罩层盒子的大小
+                    this.maskWidth = this.mask.offsetWidth;
+                    this.maskHeight = this.mask.offsetHeight;
+
+                    //放大镜背景的大小
+                    this.bgx = parseInt(getStyle(this.enlarge, 'background-size').split(' ')[0]);
+                    this.bgy = parseInt(getStyle(this.enlarge, 'background-size').split(' ')[1]);
+
+                    //show的大小
+                    this.showWidth = this.show.clientWidth;
+                    this.showHeight = this.show.clientHeight;
+
+                    let enlargeX = this.maskWidth * this.bgx / this.showWidth;
+                    let enlargeY = this.maskHeight * this.bgy / this.showHeight;
+
+                    this.enlarge.style.width = enlargeX + 'px';
+                    this.enlarge.style.height = enlargeY + 'px';
+
+                }
+                move() {
+                    // 改变遮罩层的位置 和 放大镜背景图的位置
+                    this.show.onmousemove = (e) => {
+                        let left = e.clientX + document.documentElement.scrollLeft - this.ele.offsetLeft - this.maskWidth / 2 - 50;
+                        let top = e.clientY + document.documentElement.scrollTop - this.ele.offsetTop - this.maskHeight / 2 - 100;
+
+                        // 边界值的判断
+                        if (left <= 0) {
+                            left = 0;
+                        }
+                        if (top <= 0) {
+                            top = 0;
+                        }
+                        if (left >= this.showWidth - this.maskWidth) {
+                            left = this.showWidth - this.maskWidth;
+                        }
+                        if (top >= this.showHeight - this.maskHeight) {
+                            top = this.showHeight - this.maskHeight
+                        }
+                        // 移动遮罩层
+                        this.mask.style.left = left + 'px';
+                        this.mask.style.top = top + 'px';
+
+                        // 移动背景图
+                        //  背景图移动的距离 = 背景图 * mask移动距离 / show盒子的大小
+                        let bgPX = this.bgx * left / this.showWidth;
+                        let bgPY = this.bgy * top / this.showHeight;
+                        this.enlarge.style.backgroundPosition = `-${bgPX}px -${bgPY}px`;
+                    }
+                }
+                change(ele) {
+                    //  排他思想
+                    for (let j = 0; j < this.p.length; j++) {
+                        this.p[j].classList.remove('active');
+
+                    }
+                    ele.classList.add('active');
+
+                    let bigImg = ele.getAttribute('bigImg') // 放大镜的背景图
+                    let img = ele.getAttribute('img'); // show 盒子显示的图片
+
+                    // 获取show盒子下面的img图片
+                    this.img = this.show.querySelector('img');
+
+                    // 给show盒子下面的img图片设置src属性的属性值
+                    this.img.setAttribute('src', img)
+                    this.enlarge.style.backgroundImage = `url(${bigImg})`
+                }
+            }
+            //操作对象
+            new Enlarge('.left')
         }
     </script>
 </body>

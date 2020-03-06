@@ -514,11 +514,28 @@
         height: 674px;
         margin: 0 auto;
         overflow: hidden;
-        section {
-            h2 {
-                height: 60px;
-                line-height: 60px;
-                font-size: 30px;
+        .readmore {
+            height: 60px;
+            line-height: 60px;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            a {
+                .iconfont {
+                    padding-left: 6px;
+                    font-size: 18px;
+                    color: #b0b0b0;
+                }
+                color: #333;
+                transition: all 0.3s;
+                &:hover {
+                    color: #ff6700;
+                    cursor: pointer;
+                    .iconfont {
+                        color: #ff6700;
+                    }
+                }
             }
         }
         .left {

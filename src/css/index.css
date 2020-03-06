@@ -582,10 +582,33 @@
   overflow: hidden;
 }
 
-#case_2 #case2_cont section h2 {
+#case_2 #case2_cont .readmore {
   height: 60px;
   line-height: 60px;
-  font-size: 30px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#case_2 #case2_cont .readmore a {
+  color: #333;
+  transition: all 0.3s;
+}
+
+#case_2 #case2_cont .readmore a .iconfont {
+  padding-left: 6px;
+  font-size: 18px;
+  color: #b0b0b0;
+}
+
+#case_2 #case2_cont .readmore a:hover {
+  color: #ff6700;
+  cursor: pointer;
+}
+
+#case_2 #case2_cont .readmore a:hover .iconfont {
+  color: #ff6700;
 }
 
 #case_2 #case2_cont .left {
